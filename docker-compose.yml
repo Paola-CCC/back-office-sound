@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+
+    back-office:
+        container_name: saline-back-office
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: on-failure
+        ports:
+            - "3003:3000"
+        volumes:
+            - ./:/app
+            - /app/node_modules
+        networks:
+            - acpSymfony
+
+volumes:
+    node_modules:
+
+
+networks:
+    acpSymfony:
+        driver: bridge

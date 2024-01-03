@@ -1,0 +1,79 @@
+.container-global-add {
+
+    margin-top: 35px ;
+    form.add-course.form {
+      width: 700px;
+      background-color: #fbfbfb;
+      
+      h1 {
+        text-align: center;
+        color: #191f5c;
+      }
+      .mb-3 {
+        margin-top: 7px;
+      }
+    
+      div.grp-input {
+        background-color: rgb(255, 255, 255);
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+    
+        .grid-item {
+            text-align: left;
+        }
+  
+        &.select-input-grp {
+          margin-top: 10px;
+        }
+      }
+    
+      .cont-add-course-check {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 15px 0;
+      }
+    }
+  }
+  
+  
+  .container-sucess-add {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    div.elements-zone {
+      width: 80%;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 0px 3px rgba(220, 220, 220, 0.319);
+  
+      .txt-area {
+        text-align: center;
+    
+        h4 {
+          font-size: 1.5rem;
+          color: #333;
+        }
+      }
+    
+      .btn-zone {
+        display: flex;
+        gap: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        button {
+          padding: 10px 20px;
+          font-size: 1rem;
+          cursor: pointer;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  

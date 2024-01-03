@@ -1,0 +1,44 @@
+div.pagination {
+    // background-color: cyan;
+    width: 100%;
+    padding: 10px 0;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    border: 1px solid rgba(237, 237, 237, 0.929);
+    background-color: rgb(249, 249, 249);
+
+    &.empty {
+        display: block;
+        margin-top: 5px;
+    }
+
+    div {
+        margin: 0 5px;
+        width: 130px;
+        display: inline-block;
+        text-align: center;
+        margin: 0 5px;
+
+    }
+
+    button.btn-pagination {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid rgba(214, 213, 213, 0.929);
+        color: black;
+        background-color: white;
+        &:disabled {
+            background-color: rgb(231, 231, 231);
+            cursor:not-allowed;
+            color: rgb(163, 163, 163);
+        }
+
+
+        &:last-of-type {
+            margin-right: 15px;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+
+
+$card-padding: 0;
+$card-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$card-height: fit-content;
+$card-border-radius: 10px;
+$card-border: 1px solid #ccc;
+
+$btn-boxshadow-color: 0px 0px 0px 3px rgba(17, 151, 240, 0.319);
+
+// Mixin pour les styles communs des cartes
+@mixin card {
+//   border: $card-border;
+  border-radius: $card-border-radius;
+  box-shadow: $card-box-shadow;
+  height: $card-height;
+  padding: $card-padding;
+  overflow: hidden;
+}
+
+.card {
+    @include card;
+}
+
+  
+// Mixin pour les styles des boutons
+@mixin button-styles {
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    &:disabled {
+        background-color: #e8e8e8;
+        color: #818181;
+        cursor: not-allowed;
+    }
+}
+
+@mixin formStyle {
+    border-radius: 10px;
+    box-shadow: rgb(224, 224, 224) 0px 1px 4px;
+    padding: 10px 30px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form {
+    @include formStyle;
+}

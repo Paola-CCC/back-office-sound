@@ -1,0 +1,40 @@
+$h1_size: 20px;
+$h2_size: 18px;
+$h3_size: 16px;
+$h4_size: 14px;
+$h5_size: 12px;
+$h6_size: 10px;
+
+$h1_weight: 600;
+$h2_weight: 600;
+$h3_weight: 600;
+$h4_weight: 600;
+$h5_weight: 600;
+$h6_weight: 600;
+
+$paragraph_size: 16px;
+$paragraph_weight: 500;
+
+$span_size: 12px;
+$span_weight: 400;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $h5_weight;
+  margin: 1rem 0;
+}
+
+p {
+  font-size: $paragraph_size;
+  margin: 0.5rem 0;
+}
+
+label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+}

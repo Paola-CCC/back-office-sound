@@ -1,0 +1,117 @@
+.Header {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 0 50px;
+
+    div.user-wrapper {
+      position: relative;
+      > button:nth-last-of-type(1) {
+        border: none;
+        // border: 1px solid #cdcdcd;
+        border: 1px solid rgba(219, 219, 219, 0.929);
+        padding: 8px 15px;
+        border-radius: 35px;
+
+        a {
+          display: block;
+          color: #505050;
+          text-align: center;
+          text-decoration: none;
+          font-size: 16px;
+        
+          &.gestion {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: max-content;
+            svg {
+              // background-color: rgb(169, 160, 160);
+              // background-color: rgb(206, 206, 206);
+              padding: 6px;
+              border-radius: 50%;
+              color: #505050;
+            }
+            span#username {
+              // display: inline-block;
+              height: max-content;
+              padding: 0 15px;
+              font-weight: 500;
+              font-size: 16px;
+            }
+            span.chevron {
+              box-sizing: border-box;
+              position: relative;
+              display: inline-block;
+              transform: scale(var(--ggs, 1));
+              width: 22px;
+              height: 22px;
+              border: 1px solid transparent;
+              border-radius: 100px;
+              &::before {
+                content: "";
+                display: block;
+                box-sizing: border-box;
+                position: absolute;
+                color: #505050;
+                width: 10px;
+                height: 10px;
+                border-bottom: 2px solid;
+                border-right: 2px solid;
+                transform: rotate(45deg);
+                left: 4px;
+                top: 2px;
+              }
+
+              &.open {
+                transform: rotate(-180deg);
+              }
+            }
+          }
+        }
+        a span#username.smartphone {
+          display: none;
+        }
+  
+        a span#username.desktop {
+          display: block;
+        }
+      }
+
+      ul.sub-menu {
+        display: none;
+        position: absolute;
+        bottom: -80px;
+        background-color: rgb(255, 255, 255);
+        opacity: 0.90;
+        padding: 15px 30px;
+        border-radius: 10px;
+        list-style: none;
+        border: 1px solid rgba(219, 219, 219, 0.929);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 999999;
+        li {
+          padding: 3px 0;
+          text-align: center;
+          a {
+            font-weight: 500;
+            color: #505050;
+            text-align: left;
+            width: max-content;
+            outline: none;
+            text-decoration: none;
+            margin: 0;
+            
+          }
+          button {
+            border: none;
+          }
+        }
+        &.open {
+          display: block;
+          width: 175px;
+        }
+      }
+    }
+}
