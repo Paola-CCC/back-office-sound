@@ -8,9 +8,6 @@ const AxiosClient = {
     return await axios.get(url, {
       withCredentials: true,
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
         'Content-Type': 'application/json',
         Accept: 'application/json',
         Authorization: `Bearer ${parsedToken}`,
@@ -22,9 +19,6 @@ const AxiosClient = {
     return await axios.post(url, data, {
       withCredentials: true,
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
         'Content-Type': 'application/json',
         Accept: 'application/json',
         Authorization: `Bearer ${parsedToken}`,
