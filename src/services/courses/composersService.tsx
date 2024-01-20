@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import AxiosClient from "../AxiosClient";
 import { IComposers } from "../../models/Interfaces/composer";
 
-const URL = 'http://localhost:1234';
+const URL = 'https://api-sound-project.com';
 const httpClient = AxiosClient;
 
 
