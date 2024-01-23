@@ -20,6 +20,7 @@ const ComposersAdd: FC<ComposersAddProps> = () => {
     lastname: '',
     firstname: '',
     biography: '',
+    photo:'',
     instrumentId: ''
   };
 
@@ -45,8 +46,6 @@ const ComposersAdd: FC<ComposersAddProps> = () => {
   const handleSubmit = async () => {
 
     try {
-
-      console.log("DATAS  " , newComposers )
       const data = {
         biography: newComposers.biography,
         fullName: newComposers.firstname + ' ' + newComposers.lastname.toUpperCase(),
@@ -117,6 +116,16 @@ const ComposersAdd: FC<ComposersAddProps> = () => {
         </div>
         <div className="mb-3">
           <InputText
+            label={"Prénom"}
+            name='firstname'
+            onChange={handleChange}
+            value={newComposers?.firstname || ''}
+            isRequired={true}
+            errorText={""}
+          />
+        </div>
+        <div className="mb-3">
+          <InputText
             label={"Nom"}
             name='lastname'
             onChange={handleChange}
@@ -127,10 +136,10 @@ const ComposersAdd: FC<ComposersAddProps> = () => {
         </div>
         <div className="mb-3">
           <InputText
-            label={"Prénom"}
-            name='firstname'
+            label={"Lien de la photo"}
+            name='photo'
             onChange={handleChange}
-            value={newComposers?.firstname || ''}
+            value={newComposers?.photo || ''}
             isRequired={true}
             errorText={""}
           />
@@ -146,7 +155,6 @@ const ComposersAdd: FC<ComposersAddProps> = () => {
             errorText={""}
           />
         </div>
-        <br></br>
         <div className="grid-item">
           <InputSelect
             name="instrumentId"
@@ -161,7 +169,6 @@ const ComposersAdd: FC<ComposersAddProps> = () => {
           <Button kind='secondary' onClick={handleAdd}>
             Retour
           </Button>
-          <br></br>
           <Button kind='primary' onClick={handleSubmit}>
             <span> Ajouter </span>
           </Button>

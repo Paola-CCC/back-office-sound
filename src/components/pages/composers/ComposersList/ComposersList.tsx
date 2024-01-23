@@ -55,6 +55,7 @@ const ComposersList: FC<ComposersListProps> = () => {
     if(localStorage.getItem("jwt") && localStorage.getItem("jwt") !== '') {
       const loadDatas = async () => {
         let datas = await composersService.composersAll();
+        console.log("datas : ", datas )
         setDatas(datas);
       };
       loadDatas();
@@ -85,7 +86,7 @@ const ComposersList: FC<ComposersListProps> = () => {
               </td>
               <td className='zone-img' tabIndex={0} onClick={() => navigateTo(`/composers/${value.id}`)} >
                 <div className='img-courses'>
-                   <img src={"https://static.nationalgeographic.fr/files/styles/image_3200/public/800px-Wolfgang-amadeus-mozart_1.webp?w=710&h=1043"} alt={'86'} className="card-img" />
+                   <img src={value.photo} alt={'86'} className="card-img" />
                 </div>
               </td>
               <td className='txt item-id' tabIndex={0} onClick={() => navigateTo(`/composers/${value.id}`)}>  { value.id > 9 ? value.id : `0${value.id}` } </td>

@@ -3,7 +3,7 @@ import AxiosClient from "../AxiosClient";
 import { ICourses } from "../../models/Interfaces/courses";
 import { ICoursesDatasCreation } from "../../models/Interfaces/coursesDatas";
 
-const URL = 'https://api-sound-project.com';
+const URL = 'http://localhost:1234';
 const httpClient = AxiosClient;
 
 const courseAll = async () => {

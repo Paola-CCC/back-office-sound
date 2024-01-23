@@ -20,6 +20,7 @@ const ComposersEdit: FC<ComposersEditProps> = () => {
   const initialStateNewComposers = {
     fullName: '',
     biography: '',
+    photo:'',
     instrumentId: ''
   };
 
@@ -45,7 +46,6 @@ const ComposersEdit: FC<ComposersEditProps> = () => {
   const handleSubmit = async () => {
 
     try {
-
       let response = await composersService.composersEdit(Id,newComposers);
       if ( response && response.status >= 200 ){
         setComposersCreationIsSuccesful(true);
@@ -72,9 +72,11 @@ const ComposersEdit: FC<ComposersEditProps> = () => {
 
     const loadDatas = async () => {
       let datas = await composersService.composersShowById(Id);
+
       setNewComposers((valuesBefore: any) => ({ ...valuesBefore ,
         id: datas?.id,
         fullName: datas?.fullName ,
+        photo: datas?.photo,
         biography: datas?.biography,
         instrumentId : datas.instrument[0]?.id,
       }))
@@ -130,6 +132,16 @@ const ComposersEdit: FC<ComposersEditProps> = () => {
         </div>
         <div className="mb-3">
           <InputText
+            label={"Lien de la photo"}
+            name='photo'
+            onChange={handleChange}
+            value={newComposers?.photo || ''}
+            isRequired={true}
+            errorText={""}
+          />
+        </div>
+        <div className="mb-3">
+          <InputText
             label={"Biographie"}
             type='textarea'
             name='biography'
@@ -154,7 +166,6 @@ const ComposersEdit: FC<ComposersEditProps> = () => {
           <Button kind='secondary' onClick={handleAdd}>
             Retour
           </Button>
-          <br></br>
           <Button kind='primary' onClick={handleSubmit}>
             Ajouter
           </Button>

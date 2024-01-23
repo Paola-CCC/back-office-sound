@@ -15,7 +15,8 @@ const ComposersItem: FC<ComposersItemProps> = () => {
   const initialState : any = {
    id: '',
    fullName: '' ,
-   biography: "",
+   biography: '',
+   photo:'',
    coursesNmbrs: null
   };
 
@@ -30,6 +31,7 @@ const ComposersItem: FC<ComposersItemProps> = () => {
           id: datas?.id,
           fullName: datas?.fullName ,
           biography: datas?.biography,
+          photo: datas?.photo,
           instrumentName : datas.instrument[0]?.name,
           coursesNmbrs: datas?.courses?.length
         }))
@@ -57,7 +59,7 @@ const ComposersItem: FC<ComposersItemProps> = () => {
           <div className='zone-media'>
             { (
               <div className='media img'>
-                  <img src={"https://ecoledemusiquedegerardmer.e-monsite.com/medias/images/hadi-karimi-ludwig-1.jpg"} alt="" className="card-img" />
+                   <img src={composerItems?.photo} alt={'Img composer'} className="card-img" />
               </div>
             )}
 

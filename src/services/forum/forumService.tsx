@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import AxiosClient from "../AxiosClient";
 import { IForum } from "../../models/Interfaces/forum";
 
-const URL = 'https://api-sound-project.com';
+const URL = 'http://localhost:1234';
 const httpClient = AxiosClient;
 
 const showAll = async () => {

@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import AxiosClient from "../AxiosClient";
 import { ICategories } from "../../models/Interfaces/categories";
 
-const URL = 'https://api-sound-project.com';
+const URL = 'http://localhost:1234';
 const httpClient = AxiosClient;
 
 
