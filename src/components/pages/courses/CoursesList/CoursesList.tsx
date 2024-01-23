@@ -92,7 +92,11 @@ const CoursesList = () => {
                 )}
               </td>
               <td className='txt item-id' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >  {     value.id > 9 ? value.id  : `0${value.id}` }    </td>
-              <td className='txt name-course' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >{value.title}</td>
+              <td className='txt name-course' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >
+                <div>
+                { value?.title && value?.btitle!== '' ? value?.title : 'absence de données' } 
+                </div>
+              </td>
               <td className='txt name-course' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >{`${value.professor.firstName} ${value.professor.lastName}`}</td>
               <td className='txt' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >{`${value.instrument.name}`}</td>
               <td className='txt' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >

@@ -58,11 +58,18 @@
         padding-left: 13px;
         &.name-course {
           width: 200px;
+          div {
+            display: block;
+            white-space: nowrap; 
+            width: 280px; 
+            overflow: hidden;
+            text-overflow: ellipsis; 
+          // border: 1px solid #000000;
+          }
         }
 
         &.biography {
           width: 280px; 
-
           div {
 
             display: block;
