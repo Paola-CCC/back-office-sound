@@ -108,12 +108,12 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
       const getCourseForEdit = async () => {
         if( Id !== undefined ) {
           let datas = await courseService.courseShow(Id);
-          setNewCourse({
+                    setNewCourse({
             ...datas,
-            instrumentId: datas?.instrument.id,
-            professorId: datas?.professor.id,
-            composerId: datas?.composers[0].id,
-            categoryId: datas?.categories[0].id,
+            instrumentId: datas?.instrument?.id,
+            professorId: datas?.professor?.id,
+            composerId: datas?.composers[0]?.id,
+            categoryId: datas?.categories[0]?.id,
           });
         }
       }
