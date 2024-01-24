@@ -82,17 +82,17 @@
       ul.sub-menu {
         display: none;
         position: absolute;
-        bottom: -80px;
+        bottom: -70px;
         background-color: rgb(255, 255, 255);
         opacity: 0.90;
-        padding: 15px 30px;
+        padding: 20px 15px;
         border-radius: 10px;
         list-style: none;
         border: 1px solid rgba(219, 219, 219, 0.929);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         z-index: 999999;
+        margin: 0;
         li {
-          padding: 3px 0;
           text-align: center;
           a {
             font-weight: 500;
@@ -110,7 +110,13 @@
         }
         &.open {
           display: block;
-          width: 175px;
+          width: -webkit-fill-available;
+          // width: 175px;
+          li button {
+            span {
+              padding: 0 15px;
+            }
+          }
         }
       }
     }

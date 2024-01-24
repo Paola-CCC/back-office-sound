@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import './Header.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser ,faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import MenuIcons from '../../atoms/MenuIcons/MenuIcons';
 import { useEffectsContext } from '../../../contexts/EffectsContext';
 import { useAuthContext } from '../../../contexts/AuthContext';
@@ -14,7 +14,6 @@ const Header: FC<HeaderProps> = () => {
 const [ subnavbarIsOpen, setSubnavbarIsOpen ] = useState(false);
 const { canOpenSidebar} = useEffectsContext();
 const { username, handleLogout } = useAuthContext();
-
 
   const getFirstLetters = (value :any) => {
     let username = value;
@@ -40,7 +39,12 @@ const { username, handleLogout } = useAuthContext();
       </button>
       <ul className={`sub-menu ${ subnavbarIsOpen ? 'open' : ''}`}  tabIndex={0} >
         <li>
-          <button onClick={handleLogout}>Déconnexion </button>
+          <button onClick={handleLogout}>
+            <FontAwesomeIcon icon={faRightFromBracket} />
+            <span>
+              Déconnexion 
+            </span>
+          </button>
         </li> 
       </ul>
     </div>
