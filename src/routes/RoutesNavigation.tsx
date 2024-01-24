@@ -41,7 +41,7 @@ const RoutesNavigation = () => {
 
       <Route path="professors" element={<ProfessorsList />} />
       <Route path="professors/add" element={<ProfessorsAdd />} />
-      <Route path="professors/:Id" element={<ProfessorsItem />} />
+      {/* <Route path="professors/:Id" element={<ProfessorsItem />} /> */}
       <Route path="professors/:Id/edit" element={<ProfessorsEdit />} />
 
       <Route path="entreprise" element={<EntrepriseList />} />
@@ -50,7 +50,7 @@ const RoutesNavigation = () => {
       <Route path="entreprise/:Id/edit" element={<ProfessorsEdit />} />
 
       <Route path="students" element={<StudentsList />} />
-      <Route path="students/:Id" element={<StudentsItem />} />
+      {/* <Route path="students/:Id" element={<StudentsItem />} /> */}
 
       <Route path="forum" element={<ForumList />} />
       <Route path="forum/:Id" element={<ForumItem />} />

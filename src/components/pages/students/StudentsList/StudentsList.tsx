@@ -81,22 +81,17 @@ const StudentsList: FC<StudentsListProps> = () => {
               <td className='txt'>
                 <input type='checkbox' checked={usersToDelete.includes(value.id)} onChange={()=> handleChange(value.id)}></input>
               </td>
-              <td className='zone-img' tabIndex={0} onClick={() => navigateTo(`/students/${value.id}`)} >
+              <td className='zone-img' tabIndex={0}  >
                 {value.photo && (
                   <div className='img-courses'>
                       <img src={value.photo} alt={'86'} className="card-img" />
                   </div>
                 )}
               </td>
-              <td className='txt item-id' tabIndex={0} onClick={() => navigateTo(`/students/${value.id}`)} > { value?.id > 9 ? value.id : `0${value?.id}`} </td>
-              <td className='txt name-course' tabIndex={0} onClick={() => navigateTo(`/students/${value.id}`)} >{`${value?.firstName} ${value?.lastName}`}</td>
-              <td className='txt' tabIndex={0} onClick={() => navigateTo(`/students/${value.id}`)} >{value?.email}</td>
-              {/* <td className='txt biography' tabIndex={0} onClick={() => navigateTo(`/students/${value.id}`)}> 
-                <div>
-                { value?.biography &&  value?.biography !== '' ?  value?.biography  : 'absence de données' } 
-                </div>
-              </td>               */}
-              <td className='txt' tabIndex={0} onClick={() => navigateTo(`/students/${value.id}`)} >{value.createdAt}</td>
+              <td className='txt item-id' tabIndex={0}  > { value?.id > 9 ? value.id : `0${value?.id}`} </td>
+              <td className='txt name-course' tabIndex={0}  >{`${value?.firstName} ${value?.lastName}`}</td>
+              <td className='txt' tabIndex={0}  >{value?.email}</td>
+              <td className='txt' tabIndex={0}  >{value.createdAt}</td>
             </tr>
           ))}
         </tbody>

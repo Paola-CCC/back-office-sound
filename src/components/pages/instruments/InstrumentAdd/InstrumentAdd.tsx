@@ -57,9 +57,9 @@ const InstrumentAdd: FC<InstrumentAddProps> = () => {
               Retour
             </Button> 
 
-              <Button kind='primary' onClick={clearNewCourse}>
-                  Ajouter un nouvel instrument
-              </Button> 
+            <Button kind='primary' onClick={clearNewCourse}>
+                Ajouter un nouvel instrument
+            </Button> 
           </div>
         </div>
       </div>
@@ -88,9 +88,8 @@ const InstrumentAdd: FC<InstrumentAddProps> = () => {
           <Button kind='secondary' onClick={handleAdd}>
             Retour
           </Button> 
-          <br></br>
           <Button kind='primary' onClick={handleSubmit}>
-            <span> Ajouter </span>  
+            Ajouter 
           </Button>
         </div>
         

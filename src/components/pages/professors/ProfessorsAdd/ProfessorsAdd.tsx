@@ -30,7 +30,7 @@ const ProfessorsAdd: FC<ProfessorsAddProps> = () => {
   ]
 
   const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
-  const [usersCreationIsSuccesful, setUsersCreationIsSuccesful] = useState< boolean | null > (null);
+  const [professorCreationIsSuccesful, setProfessorCreationIsSuccesful] = useState< boolean | null > (null);
   const [optionsInstruments, setOptionsInstruments] = useState< any>([]);
   const [newUsers, setNewUsers] = useState(initialStateNewUsers);
 
@@ -42,13 +42,13 @@ const ProfessorsAdd: FC<ProfessorsAddProps> = () => {
       setNewUsers({ ...newUsers, [name]: value });    
   };
 
-  const clearNewCourse = () => {
-    setUsersCreationIsSuccesful(null);
+  const clearSatesProfessor = () => {
+    setProfessorCreationIsSuccesful(null);
     setNewUsers(initialStateNewUsers);
   };
 
-  const handleAdd = () => {
-    clearNewCourse();
+  const goBackListProfessor = () => {
+    clearSatesProfessor();
     navigateTo(`/professors`);
   };
 
@@ -71,7 +71,10 @@ const ProfessorsAdd: FC<ProfessorsAddProps> = () => {
         instruments:selectedOptions  
       }
 
-      await usersService.register(datasRegister);
+      let response = await usersService.register(datasRegister);
+      if(response.token && response.token !== '') {
+        setProfessorCreationIsSuccesful(true);
+      }
     
     } catch (error) {
       console.error('Error creating course', error);
@@ -83,8 +86,8 @@ const ProfessorsAdd: FC<ProfessorsAddProps> = () => {
     const getInstrumentsForOption = (response : Instrument[]) => {
       const instruments = response.map((e :any) => {
       return {
-          value: e.id,
-          label: e.name
+        value: e.id,
+        label: e.name
       }
       });
       setOptionsInstruments([...optionsInstruments, ...instruments]);
@@ -108,12 +111,24 @@ const ProfessorsAdd: FC<ProfessorsAddProps> = () => {
 
 
 
-  if( usersCreationIsSuccesful ) {
+  if( professorCreationIsSuccesful ) {
     return (
-      <>
-      </>
+      <div className='container-sucess-add'>
+        <div className='elements-zone'>
+          <div className='txt-area'>
+            <h4>Vous venez d'inscrire un nouveau professeur avec succès </h4>
+          </div>
+          <div className='btn-zone'>
+            <Button kind='secondary' onClick={goBackListProfessor}>
+              Retour
+            </Button> 
+            <Button kind='primary' onClick={clearSatesProfessor}>
+              Ajouter un nouvel instrument
+            </Button> 
+          </div>
+        </div>
+      </div>
     )
-
   }
 
   return (
@@ -189,14 +204,13 @@ const ProfessorsAdd: FC<ProfessorsAddProps> = () => {
         </div>
 
         <div className='cont-add-course-check'>
-          <Button kind='secondary' onClick={handleAdd}>
+          <Button kind='secondary' onClick={clearSatesProfessor}>
             Retour
           </Button> 
           <Button kind='primary' onClick={handleSubmit}>
-            <span> Créer</span> 
+             Créer
           </Button>
         </div>
-        
       </form>
     </div>
 )};

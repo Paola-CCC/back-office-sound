@@ -73,7 +73,7 @@ const composersEdit = async ( Id: number | string | undefined, data: Object) => 
       const response = await httpClient.put(`${URL}/composer/${Id}/edit`,data);
 
       if (response.status >= 200 && response.status <= 299) {
-        return response.data;
+        return response;
       } else {
         console.log("error message ", response);
       }
