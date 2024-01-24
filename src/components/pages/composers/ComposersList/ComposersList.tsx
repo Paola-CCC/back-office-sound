@@ -55,7 +55,6 @@ const ComposersList: FC<ComposersListProps> = () => {
     if(localStorage.getItem("jwt") && localStorage.getItem("jwt") !== '') {
       const loadDatas = async () => {
         let datas = await composersService.composersAll();
-        console.log("datas : ", datas )
         setDatas(datas);
       };
       loadDatas();

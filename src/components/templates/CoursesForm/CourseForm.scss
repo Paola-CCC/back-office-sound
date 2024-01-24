@@ -35,6 +35,9 @@
         flex-direction: row;
         justify-content: flex-end;
         padding: 15px 0;
+        .secondary {
+          margin-right: 10px;
+        }
       }
     }
   }
