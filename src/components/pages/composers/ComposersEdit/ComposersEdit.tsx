@@ -118,7 +118,7 @@ const ComposersEdit: FC<ComposersEditProps> = () => {
     <div className='container-global-add'>
       <form className="add-course form">
         <div className='cont-title-page'>
-          <h1 className='title-page-add-course'> Ajouter un nouveau compositeur </h1>
+          <h1 className='title-page-add-course'> Modifier les informations </h1>
         </div>
         <div className="mb-3">
           <InputText

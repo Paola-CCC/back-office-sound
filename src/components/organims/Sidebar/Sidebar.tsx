@@ -112,7 +112,7 @@ const Sidebar: FC<SidebarProps> = () => {
           </li>
 
           <li className="sidebar-item">
-            <button className="accordion" id='user-settings' onClick={(e)=> addClassActive('/professors')}   >
+            <button className="accordion" id='user-settings' onClick={(e)=> addClassActive('/students')}   >
               <FontAwesomeIcon icon={faUserPen}  /> Gestion des utilisateurs
             </button>
             <ul className="panel">

@@ -3,6 +3,7 @@ import './ForumList.scss';
 import ButtonGroupList from '../../../molecules/ButtonGroupList/ButtonGroupList';
 import Pagination from '../../../molecules/Pagination/Pagination';
 import { forumService } from '../../../../services/forum/forumService';
+import { useGoNavigate } from '../../../../hooks/Navigation';
 
 interface ForumListProps {}
 
@@ -16,6 +17,8 @@ const ForumList: FC<ForumListProps> = () => {
   const currentData = datas !== null ? datas.slice(startIndex, endIndex ) : [];
   const totalPages =  datas !== null ? Math.ceil(datas.length / itemsPerPage) : 0;
   const [forumToDelete, setForumToDelete] = useState<number[] >([]);
+  const { navigateTo } = useGoNavigate();
+
 
   useEffect(() => {
     if(localStorage.getItem("jwt") && localStorage.getItem("jwt") !== '') {
@@ -64,6 +67,7 @@ const ForumList: FC<ForumListProps> = () => {
         <thead>
           <tr>
             <th> </th>
+            <th>Photo</th>
             <th>Id</th>
             <th className='name-course'>Auteur</th>
             <th className='name-course'>Titre</th>
@@ -76,6 +80,13 @@ const ForumList: FC<ForumListProps> = () => {
             <tr key={index} >
               <td className='txt'>
                 <input type='checkbox' checked={forumToDelete.includes(value.id)} onChange={()=> handleChange(value.id)}></input>
+              </td>
+              <td className='zone-img' tabIndex={0} onClick={() => navigateTo(`/professors/${value.id}`)} >
+                {value?.author?.photo && (
+                  <div className='img-courses'>
+                      <img src={value?.author?.photo} alt={'86'} className="card-img" />
+                  </div>
+                )}
               </td>
               <td className='txt item-id' > { value?.id > 9 ? value.id : `0${value?.id}`} </td>
               <td className='txt name-course' >{`${value?.author?.firstName} ${value?.author?.lastName}`}</td>

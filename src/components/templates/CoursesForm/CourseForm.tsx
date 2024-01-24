@@ -60,8 +60,8 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
       const getProfessorForOption = (response : User[]) => {
         const professors = response.map((e :any) => {
         return {
-            value: e.id,
-            label:  e.firstName + ' ' + e.lastName.toUpperCase()
+            value: e?.id,
+            label: e?.firstName + ' ' + e?.lastName.toUpperCase()
           }
         });
         setOptionsProfessors([...optionsProfessors, ...professors]);
@@ -80,8 +80,8 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
       const getCompositorsForOption = (response : Composers[]) => {
         const compositors = response.map((e :any) => {
         return {
-            value: e.id,
-            label:  e.fullName
+            value: e?.id,
+            label: e?.fullName
           }
         });
         setOptionsCompositors([...optionsCompositors, ...compositors]);
@@ -91,7 +91,7 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
         const instruments = response.map((e :any) => {
         return {
             value: e.id,
-            label:  e.name
+            label: e.name
           }
         });
         setOptionsInstruments([...optionsInstruments, ...instruments]);
@@ -168,7 +168,7 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
               Retour
             </Button> 
 
-            {( typeForm === 'creat') && (
+            {(typeForm === 'creat') && (
               <Button kind='primary' onClick={clearNewCourse}>
                   Ajouter un nouveau cours
               </Button> 
