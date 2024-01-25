@@ -103,8 +103,8 @@ const register = async (data: Object) => {
 const updateUser = async (Id: number | string | undefined, data: Object) => {
     try {
         const response = await httpClient.put(`${URL}/user/${Id}/edit`, data);
-        if (response.status >= 200 && response.status <= 299) {
-            return response.data;
+                if (response.status >= 200 && response.status <= 299) {
+            return response;
         } else {
             console.log("error message ", response);
         }

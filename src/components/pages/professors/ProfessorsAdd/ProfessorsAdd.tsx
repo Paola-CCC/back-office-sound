@@ -148,26 +148,28 @@ const ProfessorsAdd: FC<ProfessorsAddProps> = () => {
           />
         </div>
 
-        <div className="mb-3">
-          <InputText
-            label={"Prénom"}
-            name='firstName'
-            onChange={handleChange}
-            value={newUsers?.firstName || ''}
-            isRequired={true}
-            errorText={""}
-          />
-        </div>
+        <div className="grid-container mb-3">
+            <div className="mb-3">
+              <InputText
+                label={"Prénom"}
+                name='firstName'
+                onChange={handleChange}
+                value={newUsers?.firstName || ''}
+                isRequired={true}
+                errorText={""}
+              />
+            </div>
 
-        <div className="mb-3">
-          <InputText
-            label={"Nom"}
-            name='lastName'
-            onChange={handleChange}
-            value={newUsers?.lastName || ''}
-            isRequired={true}
-            errorText={""}
-          />
+            <div className="mb-3">
+              <InputText
+                label={"Nom"}
+                name='lastName'
+                onChange={handleChange}
+                value={newUsers?.lastName || ''}
+                isRequired={true}
+                errorText={""}
+              />
+            </div>
         </div>
 
         <div className="mb-3">
@@ -182,7 +184,7 @@ const ProfessorsAdd: FC<ProfessorsAddProps> = () => {
           />
         </div>
 
-        <div className="mb-3">
+        <div className="mb-3 grid-checkbox">
           <InputGroupCheckbox
             options={optionsInstruments}
             selectedOptions={selectedOptions}

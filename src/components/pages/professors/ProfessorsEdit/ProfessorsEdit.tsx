@@ -32,7 +32,6 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
   ]
 
   const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
-  const [professorCreationIsSuccesful, setProfessorCreationIsSuccesful] = useState< boolean | null > (null);
   const [optionsInstruments, setOptionsInstruments] = useState< any>([]);
   const [newUsers, setNewUsers] = useState(initialStateNewUsers);
   const [selectedFile, setSelectedFile] = useState< any>('');
@@ -50,7 +49,7 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
   };
 
   const clearSatesProfessor = () => {
-    setProfessorCreationIsSuccesful(null);
+    setSuccessUpdateUser(null);
     setNewUsers(initialStateNewUsers);
   };
 
@@ -78,10 +77,10 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
         instruments:selectedOptions  
       }
 
-      let response = await usersService.updateUser( Id , datasRegister);
+      let response = await usersService.updateUser(Id,datasRegister);
       updatePicture();
-      if(response.token && response.token !== '') {
-        setProfessorCreationIsSuccesful(true);
+      if(response?.data && response?.data?.message !== '') {
+        setSuccessUpdateUser(true);
       }
     
     } catch (error) {
@@ -102,7 +101,6 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
 
   /** Met à jour la photo de profile */
   const updatePicture = async() => {
-    // e.preventDefault();
 
     if (!selectedFile) {
       console.error("No file selected");
@@ -137,8 +135,7 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
       return {
         value: e.id,
         label: e.name
-      }
-      });
+      }});
       setOptionsInstruments([...optionsInstruments, ...instruments]);
     };
 
@@ -164,7 +161,8 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
             roles: "ROLE_PROFESSOR"
           });
 
-          console.log('prof photo ', dataUser.photo );
+          let datasInstrument = dataUser.instruments.map((e :any)=> e.id);
+          setSelectedOptions([...selectedOptions, ...datasInstrument]);         
       } catch (error) {
           console.error(error);
       };
@@ -172,7 +170,6 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
 
     if( dataFetchedRef.current === false ){
       displayInstruments();
-
       if( Id && Id !== undefined) {
         displayUserProfessorData();
       }
@@ -183,7 +180,7 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
 
 
 
-  if( professorCreationIsSuccesful ) {
+  if( successUpdateUser && successUpdateUserPic ) {
     return (
       <div className='container-sucess-add'>
         <div className='elements-zone'>
@@ -193,9 +190,6 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
           <div className='btn-zone'>
             <Button kind='secondary' onClick={goBackListProfessor}>
               Retour
-            </Button> 
-            <Button kind='primary' onClick={clearSatesProfessor}>
-              Ajouter un nouvel instrument
             </Button> 
           </div>
         </div>
@@ -209,17 +203,6 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
         <div className='cont-title-page'>
           <h2 className='title-page-add-course'> Modifier les données </h2> 
         </div>
-        
-
-        <div className="grid-container mb-3">
-          <div className="img-profile">
-            <img src= { !newUsers?.photo  ? URL + '/images/upload/profile.png' : URL + '/images/upload/' + newUsers?.photo } alt={'profile user'} width={100} height={100}/>
-          </div>
-          <div className="container-inputFile">
-            <label  htmlFor="file-image" className="form-label">Changer ma photo de profil</label>
-            <input className="form-control" type="file" id="file-image" name="file-image" onChange={onFileChange} required={true}   accept=".jpg, .jpeg, .png" />
-          </div>
-        </div>
         <div className="mb-3">
           <InputRadio
             labelRadioGroup={"Rôle"}
@@ -229,6 +212,17 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
             handleChange={handleChange}
           />
         </div>
+
+        <div className="grid-container mb-3">
+          <div className="img-profile">
+            <img src= { !newUsers?.photo ? URL + '/images/upload/profile.png' : URL + '/images/upload/' + newUsers?.photo } alt={'profile user'} width={80} height={80}/>
+          </div>
+          <div className="container-inputFile">
+            <label  htmlFor="file-image" className="form-label">Changer ma photo de profil</label>
+            <input className="form-control" type="file" id="file-image" name="file-image" onChange={onFileChange} required={true}   accept=".jpg, .jpeg, .png" />
+          </div>
+        </div>
+
         <div className="grid-container mb-3">
             <div className="mb-3">
               <InputText
@@ -251,7 +245,7 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
                 errorText={""}
               />
             </div>
-      </div>
+        </div>
 
         <div className="mb-3">
           <InputText
@@ -264,15 +258,15 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
             errorText={""}
           />
         </div>
- {/*
-        <div className="mb-3">
+ 
+        <div className="mb-3 grid-checkbox">
           <InputGroupCheckbox
             options={optionsInstruments}
             selectedOptions={selectedOptions}
             labelCheckboxGroup="Instruments"
             handleChange={(selected :any ) => handleCheckboxChange(selected)}
           />
-        </div> */}
+        </div>
 
         <div className="mb-3">
           <InputText 
@@ -287,7 +281,7 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
         </div>
 
         <div className='cont-add-course-check'>
-          <Button kind='secondary' onClick={clearSatesProfessor}>
+          <Button kind='secondary' onClick={goBackListProfessor}>
             Retour
           </Button> 
           <Button kind='primary' onClick={handleSubmit}>
