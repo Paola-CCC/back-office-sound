@@ -30,8 +30,8 @@ const AxiosClient = {
     return await axios.post(url, data, {
       withCredentials: true,
       headers: {
-        'Content-Type': 'application/json',
         Accept: 'application/json',
+        "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${parsedToken}`,
       },
     });

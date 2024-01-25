@@ -41,7 +41,7 @@ const RoutesNavigation = () => {
 
       <Route path="professors" element={<ProfessorsList />} />
       <Route path="professors/add" element={<ProfessorsAdd />} />
-      {/* <Route path="professors/:Id" element={<ProfessorsItem />} /> */}
+      <Route path="professors/:Id" element={<ProfessorsItem />} />
       <Route path="professors/:Id/edit" element={<ProfessorsEdit />} />
 
       <Route path="entreprise" element={<EntrepriseList />} />

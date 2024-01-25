@@ -19,6 +19,7 @@ const ProfessorsList: FC<ProfessorsListProps> = () => {
   const currentData = datas !== null ? datas.slice(startIndex, endIndex ) : [];
   const totalPages =  datas !== null ? Math.ceil(datas.length / itemsPerPage) : 0;
   const [professorsToDelete, setProfessorsToDelete] = useState<number[] >([]);
+  const URL = 'https://api-sound-project.com/';
 
   const handleAdd = () => {
     navigateTo(`/professors/add`);
@@ -78,27 +79,25 @@ const ProfessorsList: FC<ProfessorsListProps> = () => {
           </tr>
         </thead>
         <tbody>
-          {currentData.map((value : any, index : any) => (
+        {currentData.map((value : any, index : any) => (
             <tr key={index} >
               <td className='txt'>
                 <input type='checkbox' checked={professorsToDelete.includes(value.id)} onChange={()=> handleChange(value.id)}></input>
               </td>
-              <td className='zone-img' tabIndex={0}  >
-                {value.photo && (
-                  <div className='img-courses'>
-                      <img src={value.photo} alt={'86'} className="card-img" />
-                  </div>
-                )}
+              <td className='zone-img' tabIndex={0} onClick={() => navigateTo(`/professors/${value.id}/edit`)} >
+                <div className='img-courses'>
+                    <img src= { !value?.image?.imageName  ? URL + '/images/upload/profile.png' : URL + '/images/upload/' + value?.image?.imageName } alt={'profile user'} width={100} height={100}/>
+                </div>
               </td>
-              <td className='txt item-id' tabIndex={0}  > { value?.id > 9 ? value.id : `0${value?.id}`} </td>
-              <td className='txt name-course' tabIndex={0}  >{`${value?.firstName} ${value?.lastName}`}</td>
-              <td className='txt' tabIndex={0}  >{value?.email}</td>
-              <td className='txt biography' tabIndex={0} > 
+              <td className='txt item-id' tabIndex={0} onClick={() => navigateTo(`/professors/${value.id}/edit`)} > { value?.id > 9 ? value.id : `0${value?.id}`} </td>
+              <td className='txt name-course' tabIndex={0} onClick={() => navigateTo(`/professors/${value.id}/edit`)} >{`${value?.firstName} ${value?.lastName}`}</td>
+              <td className='txt' tabIndex={0} onClick={() => navigateTo(`/professors/${value.id}/edit`)} >{value?.email}</td>
+              <td className='txt biography' tabIndex={0} onClick={() => navigateTo(`/professors/${value.id}/edit`)}> 
                 <div>
                 { value?.biography &&  value?.biography !== '' ?  value?.biography  : 'absence de données' } 
                 </div>
               </td>              
-              <td className='txt' tabIndex={0}  >{value.createdAt}</td>
+              <td className='txt' tabIndex={0} onClick={() => navigateTo(`/professors/${value.id}/edit`)} >{value.createdAt}</td>
             </tr>
           ))}
         </tbody>

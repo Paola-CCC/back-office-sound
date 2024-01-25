@@ -19,6 +19,7 @@ const EntrepriseList: FC<EntrepriseListProps> = () => {
   const currentData = datas !== null ? datas.slice(startIndex, endIndex ) : [];
   const totalPages =  datas !== null ? Math.ceil(datas.length / itemsPerPage) : 0;
   const [usersToDelete, setUsersToDelete] = useState<number[] >([]);
+  const URL = 'https://api-sound-project.com/';
 
   const handleAdd = () => {
     navigateTo(`/entreprise/add`);
@@ -87,11 +88,9 @@ const EntrepriseList: FC<EntrepriseListProps> = () => {
                 <input type='checkbox' checked={usersToDelete.includes(value.id)} onChange={()=> handleChange(value.id)}></input>
               </td>
               <td className='zone-img' >
-                {value.photo && (
                   <div className='img-courses'>
-                      <img src={value.photo} alt={'86'} className="card-img" />
+                      <img src= { !value?.image?.imageName  ? URL + '/images/upload/profile.png' : URL + '/images/upload/' + value?.image?.imageName } alt={'profile user'} width={100} height={100}/>
                   </div>
-                )}
               </td>
               <td className='txt item-id' > { value?.id > 9 ? value.id : `0${value?.id}`} </td>
               <td className='txt name-course' >{`${value?.firstName} ${value?.lastName}`}</td>

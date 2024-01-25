@@ -18,9 +18,9 @@ const showAll = async () => {
     }
 };
 
-const showById = async (Id: number | string) => {
+const showById = async (Id: number | string | undefined) => {
     try {
-        const response = await httpClient.get(`${URL}/api/user/${Id}`);
+        const response = await httpClient.get(`${URL}/user/${Id}`);
         if (response.status >= 200 && response.status <= 299) {
             return response.data;
         } else {
@@ -100,9 +100,9 @@ const register = async (data: Object) => {
     }
 };
 
-const updateUser = async (Id: number | string, data: Object) => {
+const updateUser = async (Id: number | string | undefined, data: Object) => {
     try {
-        const response = await httpClient.put(`${URL}/api/user/${Id}/edit`, data);
+        const response = await httpClient.put(`${URL}/user/${Id}/edit`, data);
         if (response.status >= 200 && response.status <= 299) {
             return response.data;
         } else {
@@ -125,6 +125,20 @@ const deleteUser = async (Id: number | string, data: Object) => {
         console.error(error);
     }
 };
+
+
+const updateUserPicture = async (endpoint : any, userPicture :any) => {
+    try {
+        const response = await httpClient.postFile(`${URL}${endpoint}`, userPicture);
+        if (response.status >= 200 && response.status <= 299) {
+            return response ;
+        } else {
+            console.log('error message ', response)
+        }
+    } catch (error) {
+        console.error(error)
+    }
+}
 
 
 interface UsersDeleteManyParams {
@@ -156,6 +170,7 @@ export const usersService = {
     showAll,
     updateUser,
     deleteUser,
-    usersDeleteMany
+    usersDeleteMany,
+    updateUserPicture
 
 };
