@@ -10,12 +10,11 @@ $btn-boxshadow-color: 0px 0px 0px 3px rgba(17, 151, 240, 0.319);
 
 // Mixin pour les styles communs des cartes
 @mixin card {
-//   border: $card-border;
-  border-radius: $card-border-radius;
-  box-shadow: $card-box-shadow;
-  height: $card-height;
-  padding: $card-padding;
-  overflow: hidden;
+    border-radius: $card-border-radius;
+    box-shadow: $card-box-shadow;
+    height: $card-height;
+    padding: $card-padding;
+    overflow-y: auto;
 }
 
 .card {

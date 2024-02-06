@@ -95,8 +95,8 @@ const StudentsList: FC<StudentsListProps> = () => {
           ))}
         </tbody>
       </table>
-      <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
     </div>
+    <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
   </>
 )};
 

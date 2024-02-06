@@ -35,8 +35,16 @@
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 768px) {
+/* Medium devices (landscape tablets, 1024px and up) */
+@media only screen and (max-width: 1024px) {
+
+  .global-container div.main-content {
+    nav div.Header,
+    main {
+      padding: 0 25px;
+    }
+  }
+  
   .global-container {
     position: relative;
     /** Sidebar Ouvert */
@@ -75,4 +83,16 @@
       }
     }
   }
+}
+
+
+@media only screen and (max-width: 450px)  {
+
+  .global-container div.main-content {
+    nav div.Header,
+    main {
+      padding: 0 15px;
+    }
+  }
+
 }

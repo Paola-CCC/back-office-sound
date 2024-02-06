@@ -101,8 +101,8 @@ const EntrepriseList: FC<EntrepriseListProps> = () => {
           ))}
         </tbody>
       </table>
-      <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
     </div>
+    <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
   </>
 )};
 

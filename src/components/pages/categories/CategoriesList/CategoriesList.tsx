@@ -92,13 +92,14 @@ const CategoriesList: FC<CategoriesListProps> = () => {
           ))}
         </tbody>
       </table>
-      {canShowPagination ? 
+
+    </div>
+    {canShowPagination ? 
         <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />  
         : (
             <div className="pagination empty"></div>
         )
       }
-    </div>
   </div>
 )};
 
