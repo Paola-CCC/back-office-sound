@@ -97,7 +97,7 @@ const ProfessorsList: FC<ProfessorsListProps> = () => {
                 { value?.biography &&  value?.biography !== '' ?  value?.biography  : 'absence de données' } 
                 </div>
               </td>              
-              <td className='txt' tabIndex={0} onClick={() => navigateTo(`/professors/${value.id}/edit`)} >{value.createdAt}</td>
+              <td className='txt date' tabIndex={0} onClick={() => navigateTo(`/professors/${value.id}/edit`)} >{value.createdAt}</td>
             </tr>
           ))}
         </tbody>

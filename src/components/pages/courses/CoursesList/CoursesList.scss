@@ -40,6 +40,7 @@
     tr {
       td.zone-img {
         width: 80px;
+        padding: 10px;
 
         div.img-courses {
           height: 50px;
@@ -84,7 +85,14 @@
         &.fullname {
           width: 300px;
         }
+       
+        .stars-area {
+          display: inline-flex;
+        }
 
+        &.date {
+          padding-right: 15px;
+        }
 
 
         &.last button.secondary {

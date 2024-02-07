@@ -100,11 +100,11 @@ const CoursesList = () => {
               <td className='txt name-course' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >{`${value.professor.firstName} ${value.professor.lastName}`}</td>
               <td className='txt' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >{`${value.instrument.name}`}</td>
               <td className='txt' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >
-                <span className="stars-area">
+                <p className="stars-area">
                   <RatingStars ratingScore={value.ratingScore} />
-                </span>          
+                </p>          
               </td>
-              <td className='txt' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >{value.createdAt}</td>
+              <td className='txt date' tabIndex={0} onClick={() => navigateTo(`/courses/${value.id}`)} >{value.createdAt}</td>
             </tr>
           ))}
         </tbody>

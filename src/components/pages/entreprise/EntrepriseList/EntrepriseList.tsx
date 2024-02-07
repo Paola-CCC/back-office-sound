@@ -96,7 +96,7 @@ const EntrepriseList: FC<EntrepriseListProps> = () => {
               <td className='txt name-course' >{`${value?.firstName} ${value?.lastName}`}</td>
               <td className='txt' >{value?.email}</td>
               <td className='txt' >{value?.roles[0]}</td>
-              <td className='txt' >{value.createdAt}</td>
+              <td className='txt date' >{value.createdAt}</td>
             </tr>
           ))}
         </tbody>

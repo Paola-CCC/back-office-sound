@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import './StudentsList.scss';
 import ButtonGroupList from '../../../molecules/ButtonGroupList/ButtonGroupList';
-import { useGoNavigate } from '../../../../hooks/Navigation';
 import Pagination from '../../../molecules/Pagination/Pagination';
 import { usersService } from '../../../../services/users/UsersService';
 import { IUsers } from '../../../../models/Interfaces/users';
@@ -12,7 +11,6 @@ const StudentsList: FC<StudentsListProps> = () => {
 
   const [datas,setDatas] = useState< IUsers[] | null>([]);
   const itemsPerPage = 7;
-  const { navigateTo } = useGoNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -90,7 +88,7 @@ const StudentsList: FC<StudentsListProps> = () => {
               <td className='txt item-id' tabIndex={0}  > { value?.id > 9 ? value.id : `0${value?.id}`} </td>
               <td className='txt name-course' tabIndex={0}  >{`${value?.firstName} ${value?.lastName}`}</td>
               <td className='txt' tabIndex={0}  >{value?.email}</td>
-              <td className='txt' tabIndex={0}  >{value.createdAt}</td>
+              <td className='txt date' tabIndex={0}  >{value.createdAt}</td>
             </tr>
           ))}
         </tbody>
