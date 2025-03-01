@@ -50,6 +50,7 @@ const ComposersAdd: FC<ComposersAddProps> = () => {
         biography: newComposers.biography,
         fullName: newComposers.firstname + ' ' + newComposers.lastname.toUpperCase(),
         instrumentId: newComposers.instrumentId,
+        photo: newComposers.photo
       };
 
       let response = await composersService.composersAdd(data);

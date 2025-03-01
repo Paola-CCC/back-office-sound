@@ -12,9 +12,19 @@ import { useParams } from 'react-router-dom';
 
 interface ProfessorsEditProps {}
 
+interface IinitialStateNewUsers {
+  firstName: string,
+  lastName: string,
+  email: string,
+  biography:  string,
+  photo: string,
+  password:  string,
+  roles: string,
+}
+
 const ProfessorsEdit: FC<ProfessorsEditProps> = () => { 
 
-  const initialStateNewUsers = {
+  const initialStateNewUsers : IinitialStateNewUsers= {
     firstName: '',
     lastName:'',
     email:'',
@@ -48,13 +58,13 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
       setNewUsers({ ...newUsers, [name]: value });    
   };
 
-  const clearSatesProfessor = () => {
+  const clearStateProfessor = () => {
     setSuccessUpdateUser(null);
     setNewUsers(initialStateNewUsers);
   };
 
   const goBackListProfessor = () => {
-    clearSatesProfessor();
+    clearStateProfessor();
     navigateTo(`/professors`);
   };
 
@@ -284,7 +294,7 @@ const ProfessorsEdit: FC<ProfessorsEditProps> = () => {
           <Button kind='secondary' onClick={goBackListProfessor}>
             Retour
           </Button> 
-          <Button kind='primary' onClick={handleSubmit}>
+          <Button kind='primary' onClick={(handleSubmit)}>
             Modifier
           </Button>
         </div>

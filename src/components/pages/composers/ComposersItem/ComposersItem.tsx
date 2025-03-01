@@ -1,13 +1,12 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ComposersItem.scss';
 import ButtonGroupItem from '../../../molecules/ButtonGroupItem/ButtonGroupItem';
 import { useGoNavigate } from '../../../../hooks/Navigation';
 import { useParams } from 'react-router-dom';
 import { composersService } from '../../../../services/courses/composersService';
 
-interface ComposersItemProps {}
 
-const ComposersItem: FC<ComposersItemProps> = () => {
+const ComposersItem = () => {
 
   const { navigateTo } = useGoNavigate();
   const { Id } = useParams();
