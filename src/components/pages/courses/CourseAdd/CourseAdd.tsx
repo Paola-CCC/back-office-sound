@@ -6,7 +6,7 @@ const CourseAdd = () => {
 
   return (
     <>
-      < CourseForm typeForm='creat' />
+      < CourseForm typeForm='create' />
     </>
   );
 };

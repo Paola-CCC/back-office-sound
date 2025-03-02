@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 import "./CourseForm.scss" ;
 
 interface CourseFormProps {
-  typeForm?: 'creat'| 'edit'
+  typeForm?: 'create'| 'edit'
 }
 
 const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
@@ -26,14 +26,14 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
     const initialStateNewCourse = {
       title: '',
       description: '',
-      price: undefined || '',
+      price: '',
       linkVideo: '',
       preview: '',
       photo: '',
-      instrumentId: undefined || '',
-      professorId: undefined || '',
-      composerId: undefined || '',
-      categoryId: undefined || ''
+      instrumentId:  '',
+      professorId:  '',
+      composerId:  '',
+      categoryId:  ''
     };
 
   const [newCourse, setNewCourse] = useState(initialStateNewCourse);
@@ -137,7 +137,7 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
 
     try {
 
-      if( typeForm === 'creat') {
+      if( typeForm === 'create') {
         response = await courseService.courseAdd(newCourse);
       }
 
@@ -160,7 +160,7 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
       <div className='container-sucess-add'>
         <div className='elements-zone'>
           <div className='txt-area'>
-            {( typeForm === 'creat') && <h4>Vous venez de créer un nouveau cours avec succès </h4>}
+            {( typeForm === 'create') && <h4>Vous venez de créer un nouveau cours avec succès </h4>}
             {( typeForm === 'edit') && <h4>Vous venez de modifier avec succès le cours N° { Id ?  Id : ''} </h4>}
           </div>
           <div className='btn-zone'>
@@ -168,7 +168,7 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
               Retour
             </Button> 
 
-            {(typeForm === 'creat') && (
+            {(typeForm === 'create') && (
               <Button kind='primary' onClick={clearNewCourse}>
                   Ajouter un nouveau cours
               </Button> 
@@ -184,7 +184,7 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
     <div className='container-global-add'>
       <form className="add-course form">
         <div className='cont-title-page'>
-          {( typeForm === 'creat') && <h1 className='title-page-add-course'> Ajouter un cours </h1> }
+          {( typeForm === 'create') && <h1 className='title-page-add-course'> Ajouter un cours </h1> }
           {( typeForm === 'edit') && <h1 className='title-page-add-course'> Modifier le cours N° { Id ?  Id : ''}</h1> }
         </div>
         <div className="mb-3">
@@ -236,7 +236,7 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
         </div>
         <div className="mb-3">
               <InputText 
-                  label= {"Preview"}   
+                  label= {"Preview de la video"}   
                   name='preview' 
                   onChange={handleChange}
                   value={newCourse?.preview || ''}
@@ -305,7 +305,7 @@ const CourseForm: FC<CourseFormProps>  = ({typeForm }) => {
           </Button> 
           <br></br>
           <Button kind='primary' onClick={handleSubmit}>
-          {( typeForm === 'creat') && <span> Créer</span> }
+          {( typeForm === 'create') && <span> Créer</span> }
           {( typeForm === 'edit') && <span> Modifier </span> }          
           </Button>
         </div>
